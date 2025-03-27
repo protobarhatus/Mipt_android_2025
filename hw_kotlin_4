@@ -1,0 +1,8 @@
+class Stack
+{
+    private val data = ArrayList<Pair<Int, Int>>()
+    fun push(x:Int) = data.add(x to kotlin.math.max(x, data.lastOrNull()?.second?:x))
+    fun pop():Pair<Int, Int> = data.removeLast()
+    fun top() = data.lastOrNull()
+    fun max() = data.lastOrNull()?.second
+}
