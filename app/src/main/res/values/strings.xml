@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Konoclicker</string>
+    <string name="total_clicks_key" translatable="false">TOTAL_CLICKS</string>
+    <string name="daily_clicks_key" translatable="false">DAILY_CLICKS</string>
+    <string name="monthly_clicks_key" translatable="false">MONTHLY_CLICKS</string>
+    <string name="yearly_clicks_key" translatable="false">YEARLY_CLICKS</string>
+    <string name="day_key" translatable="false">CURRENT_DAY</string>
+    <string name="month_key" translatable="false">CURRENT_MONTH</string>
+    <string name="year_key" translatable="false">CURRENT_YEAR</string>
+    <string name="to_next_level">До уровня %1$d осталось %2$d Эрис</string>
+    <string name="stats_button_text">Статистика</string>
+    <string name="clicks_today_text">Эрис за сегодня</string>
+    <string name="clicks_weekly_text">Эрис за неделю</string>
+    <string name="clicks_monthly_text">Эрис за %1$s</string>
+    <string name="clicks_yearly_text">Эрис за год</string>
+    <string name="weekly_clicks_key" translatable="false">WEEKLY_CLICKS</string>
+    <string name="week_key" translatable="false">CURRENT_WEEK</string>
+
+</resources>
