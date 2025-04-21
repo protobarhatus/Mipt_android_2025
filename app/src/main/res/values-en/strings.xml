@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Konoclicker</string>
+    <string name="to_next_level">To level %1$d remain %2$d Eris</string>
+    <string name="stats_button_text">Statistics</string>
+    <string name="clicks_today_text">Eris earned today</string>
+    <string name="clicks_weekly_text">Eris earned by week</string>
+    <string name="clicks_monthly_text">Eris earned in %1$s</string>
+    <string name="clicks_yearly_text">Eris eraned early</string>
+</resources>
