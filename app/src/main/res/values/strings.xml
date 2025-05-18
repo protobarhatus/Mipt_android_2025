@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Task Manager</string>
+    <string name="filters">Filters</string>
+    <string-array name="filters_array">
+        <item>FILTER1</item>
+        <item>FILTER2</item>
+        <item>FILTER3</item>
+    </string-array>
+    <string name="planned_button_text">Планируемые</string>
+    <string name="completed_button_text">Сделанные</string>
+    <string name="task_name_label">Имя:</string>
+    <string name="task_description_label">Описание:</string>
+    <string name="task_dedline_label">Дедлайн:</string>
+    <string name="task_urgency_label">Срочность:</string>
+    <string name="task_tags_label">Тэги:</string>
+    <string name="task_comma_hint">(Через запятую и пробел)</string>
+    <string name="Back">Назад</string>
+    <string name="Save">Сохранить</string>
+    <string name="TASK_BUNDLE">TASK</string>
+    <string name="SAVE_RES_BUNDLE">SAVE_RES</string>
+    <string name="TASK_EDIT_RESULT">TASK_EDIT_RESULT</string>
+    <string name="DELETE_RES_BUNDLE">DELETE</string>
+    <string name="delete_button_text">Удалить</string>
+    <string name="adtext">РЕКЛАМА!!!</string>
+    <string name="todays_tasks">Задачи на сегодня</string>
+    <string name="tomorrows_tasks">Задачи на завтра</string>
+    <string name="no_tasks">НЕТУ</string>
+    <string name="no_filters_text">Убрать фильтры</string>
+    <string name="no_ad_text">Убрать рекламу</string>
+    <string name="urgency_sort_text">Сортировать таски по срочности</string>
+    <string name="about_app">ЭТО ТАСК МЕНЕДЖЕР</string>
+</resources>
