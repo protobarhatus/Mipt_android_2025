@@ -26,7 +26,7 @@ class NewChatNameDialogFragment : DialogFragment() {
         val view = inflater.inflate(R.layout.fragment_new_chat_name_dialog, container, false)
         val nameInputView = view.findViewById<TextInputEditText>(R.id.nameInputView)
         view.findViewById<Button>(R.id.button).setOnClickListener l@{
-            if (!nameInputView.text!!.contains(Regex("\\S")))
+            if (nameInputView.text!!.isBlank())
                 return@l
             val res = Bundle()
             res.putString(getString(R.string.NEW_CHAT_NAME_KEY), nameInputView.text.toString())

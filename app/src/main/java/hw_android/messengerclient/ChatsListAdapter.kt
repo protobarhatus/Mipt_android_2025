@@ -25,7 +25,7 @@ class ChatsListAdapter (var chats: ArrayList<ChatHeader>, val onChatClick : (Int
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.chatNameTV.text = if (!chats[position].name.isEmpty()) chats[position].name else "БЕЗ ИМЕНИ"
+        holder.chatNameTV.text = if (!chats[position].name.isBlank()) chats[position].name else holder.view.context.getString(R.string.no_chat_name_notif)
         holder.chatNameTV.setTextColor(
             if (!chats[position].name.isEmpty())
                 holder.view.context.getColor(R.color.black)

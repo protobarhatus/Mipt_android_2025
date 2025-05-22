@@ -7,4 +7,6 @@
     <string name="new_chat_hint">Введите название чата:</string>
     <string name="ok_text">Ок</string>
     <string name="NEW_CHAT_NAME_KEY">NEW_CHAT_NAME_KEY</string>
+    <string name="no_messages_picture">https://avatars.mds.yandex.net/i?id=7daddba1b556e3016d0d824935aebb4a_l-9065850-images-thumbs&amp;n=13</string>
+    <string name="no_chat_name_notif">БЕЗ ИМЕНИ</string>
 </resources>

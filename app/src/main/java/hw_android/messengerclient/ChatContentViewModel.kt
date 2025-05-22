@@ -10,9 +10,10 @@ class ChatContentViewModel : ViewModel() {
     private val _state = MutableStateFlow(ChatContent(0,  ArrayList<Message>()))
     val state: StateFlow<ChatContent> = _state.asStateFlow()
 
+    var hasReceivedPush = false
     fun pushMessages(mess: ChatContent) {
+        hasReceivedPush = true
         _state.update { mess }
-
     }
 
 }

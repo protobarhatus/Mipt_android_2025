@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat.getSystemService
@@ -19,6 +20,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -35,6 +37,7 @@ class ChatContentFragment : Fragment() {
     val networkService: NetworkService by lazy { (activity as MainActivity).networkService }
     lateinit var adapter : ChatsContentAdapter
     lateinit var messageInputField: EditText
+    var shows_no_messages_picture = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,7 +71,7 @@ class ChatContentFragment : Fragment() {
                 viewModel.state.collect { viewState ->
 
                     adapter.setMessagesArray(viewState.messages)
-
+                    noMessagesImage(view, !viewState.messages.isEmpty())
                 }
             }
         }
@@ -77,11 +80,13 @@ class ChatContentFragment : Fragment() {
         view.findViewById<TextView>(R.id.nameView).text = arguments?.getString(getString(R.string.NAME_KEY))
 
         viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 while (isActive) {
                     val chat = networkService.apiService.chatContent(chat_id)
                     viewModel.pushMessages(chat)
                     delay(1000)
                 }
+            }
 
         }
 
@@ -95,7 +100,27 @@ class ChatContentFragment : Fragment() {
         if (resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE)
             view.findViewById<ImageButton>(R.id.backButton).visibility = View.GONE
 
+
         return view
+    }
+
+    fun noMessagesImage(view: View, has_messages: Boolean) {
+        if (!viewModel.hasReceivedPush)
+            return
+        if (has_messages && shows_no_messages_picture)
+        {
+            view.findViewById<ImageView>(R.id.imageView).visibility = View.GONE
+            shows_no_messages_picture = false
+        }
+        else if (!has_messages && !shows_no_messages_picture)
+        {
+            val imageView = view.findViewById<ImageView>(R.id.imageView)
+            Glide.with(this)
+                .load(getString(R.string.no_messages_picture))
+                .into(imageView)
+            imageView.visibility = View.VISIBLE
+            shows_no_messages_picture = true
+        }
     }
 
     fun sendMessage(p: View) {

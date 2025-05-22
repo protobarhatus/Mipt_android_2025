@@ -56,10 +56,12 @@ class ChatsListFragment : Fragment() {
             }
         }
         viewLifecycleOwner.lifecycleScope.launch {
-            while (isActive) {
-                val tasks = networkService.apiService.chatsList()
-                viewModel.pushChatsList(tasks.chats)
-                delay(1000)
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                while (isActive) {
+                    val tasks = networkService.apiService.chatsList()
+                    viewModel.pushChatsList(tasks.chats)
+                    delay(1000)
+                }
             }
         }
 
