@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MessengerClient</string>
+    <string name="ID_KEY">ID_KEY</string>
+    <string name="NAME_KEY">NAME_KEY</string>
+    <string name="message_message">Сообщение:</string>
+    <string name="OPENED_CHAT_KEY">OPENED_CHAT_KEY</string>
+    <string name="new_chat_hint">Введите название чата:</string>
+    <string name="ok_text">Ок</string>
+    <string name="NEW_CHAT_NAME_KEY">NEW_CHAT_NAME_KEY</string>
+</resources>
