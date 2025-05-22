@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
 
         openedChat = savedInstanceState?.getInt(getString(R.string.OPENED_CHAT_KEY)) ?: -1
+        supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
         {
             if (openedChat == -1) {
@@ -46,10 +47,10 @@ class MainActivity : AppCompatActivity() {
                     show(chatListFragmentView.getFragment())
                     hide(contentFragmentView.getFragment())
                 }
-                supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                
             }
             else {
-                supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+                
                 supportFragmentManager.commit {
                     hide(chatListFragmentView.getFragment())
                     show(contentFragmentView.getFragment())
@@ -63,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 show(chatListFragmentView.getFragment())
                 show(contentFragmentView.getFragment())
             }
-            supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+            
         }
 
         if (openedChat == -1)
