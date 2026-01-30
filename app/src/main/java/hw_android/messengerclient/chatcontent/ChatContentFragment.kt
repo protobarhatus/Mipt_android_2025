@@ -1,4 +1,4 @@
-package hw_android.messengerclient
+package hw_android.messengerclient.chatcontent
 
 import android.content.Context
 import android.content.res.Configuration
@@ -13,14 +13,16 @@ import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import hw_android.messengerclient.MainActivity
+import hw_android.messengerclient.Message
+import hw_android.messengerclient.NetworkService
+import hw_android.messengerclient.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -33,11 +35,11 @@ class ChatContentFragment : Fragment() {
 
     private val viewModel: ChatContentViewModel by viewModels()
 
-    val chat_id : Int by lazy { arguments?.getInt(getString(R.string.ID_KEY), -1) ?: -1 }
-    val networkService: NetworkService by lazy { (activity as MainActivity).networkService }
-    lateinit var adapter : ChatsContentAdapter
-    lateinit var messageInputField: EditText
-    var shows_no_messages_picture = false
+    private val chat_id : Int by lazy { arguments?.getInt(getString(R.string.ID_KEY), -1) ?: -1 }
+    private val networkService: NetworkService by lazy { (activity as MainActivity).networkService }
+    private lateinit var adapter : ChatsContentAdapter
+    private lateinit var messageInputField: EditText
+    private var shows_no_messages_picture = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -104,7 +106,7 @@ class ChatContentFragment : Fragment() {
         return view
     }
 
-    fun noMessagesImage(view: View, has_messages: Boolean) {
+    private fun noMessagesImage(view: View, has_messages: Boolean) {
         if (!viewModel.hasReceivedPush)
             return
         if (has_messages && shows_no_messages_picture)
@@ -123,7 +125,7 @@ class ChatContentFragment : Fragment() {
         }
     }
 
-    fun sendMessage(p: View) {
+    private fun sendMessage(p: View) {
         if (messageInputField.text.isBlank())
             return
         val message: String = messageInputField.text.toString()

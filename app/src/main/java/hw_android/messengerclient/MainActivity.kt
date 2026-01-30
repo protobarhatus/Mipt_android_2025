@@ -1,11 +1,8 @@
 package hw_android.messengerclient
 
-import android.R.attr.content
-import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Rect
 import android.os.Bundle
-import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
@@ -14,17 +11,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.commit
+import hw_android.messengerclient.chatcontent.ChatContentFragment
 
 class MainActivity : AppCompatActivity() {
 
     val networkService = NetworkService()
-    val contentFragmentView : FragmentContainerView by lazy { findViewById<FragmentContainerView>(R.id.contentFragmentView) }
-    val chatListFragmentView : FragmentContainerView by lazy {findViewById<FragmentContainerView>(R.id.fragView)}
-    var openedChat : Int = -1
+    private val contentFragmentView : FragmentContainerView by lazy { findViewById<FragmentContainerView>(R.id.contentFragmentView) }
+    private val chatListFragmentView : FragmentContainerView by lazy {findViewById<FragmentContainerView>(R.id.fragView)}
+    private var openedChat : Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

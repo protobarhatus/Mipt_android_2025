@@ -9,7 +9,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragView"
-        android:name="hw_android.messengerclient.ChatsListFragment"
+        android:name="hw_android.messengerclient.chatlist.ChatsListFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,7 +19,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/contentFragmentView"
-        android:name="hw_android.messengerclient.ChatContentFragment"
+        android:name="hw_android.messengerclient.chatcontent.ChatContentFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="visible"

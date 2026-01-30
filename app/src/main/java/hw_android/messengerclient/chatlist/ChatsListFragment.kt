@@ -1,4 +1,4 @@
-package hw_android.messengerclient
+package hw_android.messengerclient.chatlist
 
 import androidx.fragment.app.viewModels
 import android.os.Bundle
@@ -12,6 +12,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import hw_android.messengerclient.ChatHeader
+import hw_android.messengerclient.MainActivity
+import hw_android.messengerclient.NetworkService
+import hw_android.messengerclient.NewChatNameDialogFragment
+import hw_android.messengerclient.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -26,7 +31,7 @@ class ChatsListFragment : Fragment() {
     private lateinit var adapter: ChatsListAdapter
 
 
-    val networkService: NetworkService by lazy { (activity as MainActivity).networkService }
+    private val networkService: NetworkService by lazy { (activity as MainActivity).networkService }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,7 +76,7 @@ class ChatsListFragment : Fragment() {
         return view
     }
 
-    fun createNewChatButton(p: View) {
+    private fun createNewChatButton(p: View) {
         val frag = NewChatNameDialogFragment()
 
         childFragmentManager.setFragmentResultListener(getString(R.string.NEW_CHAT_NAME_KEY), this) l@{ _, result->

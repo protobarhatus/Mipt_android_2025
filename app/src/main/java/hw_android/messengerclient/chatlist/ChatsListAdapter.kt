@@ -1,14 +1,12 @@
-package hw_android.messengerclient
+package hw_android.messengerclient.chatlist
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
-import androidx.transition.Visibility
+import hw_android.messengerclient.ChatHeader
+import hw_android.messengerclient.R
 
 class ChatsListAdapter (var chats: ArrayList<ChatHeader>, val onChatClick : (Int, String)-> Unit) : RecyclerView.Adapter<ChatsListAdapter.ViewHolder>() {
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
@@ -25,7 +23,8 @@ class ChatsListAdapter (var chats: ArrayList<ChatHeader>, val onChatClick : (Int
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.chatNameTV.text = if (!chats[position].name.isBlank()) chats[position].name else holder.view.context.getString(R.string.no_chat_name_notif)
+        holder.chatNameTV.text = if (!chats[position].name.isBlank()) chats[position].name else holder.view.context.getString(
+            R.string.no_chat_name_notif)
         holder.chatNameTV.setTextColor(
             if (!chats[position].name.isEmpty())
                 holder.view.context.getColor(R.color.black)

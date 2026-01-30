@@ -1,13 +1,11 @@
-package hw_android.messengerclient
+package hw_android.messengerclient.chatlist
 
 import androidx.lifecycle.ViewModel
+import hw_android.messengerclient.ChatHeader
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-
-import java.util.UUID
-
 
 
 class ChatsListViewModel : ViewModel() {

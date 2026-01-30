@@ -1,10 +1,12 @@
-package hw_android.messengerclient
+package hw_android.messengerclient.chatcontent
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import hw_android.messengerclient.Message
+import hw_android.messengerclient.R
 
 class ChatsContentAdapter (var messages: ArrayList<Message>) : RecyclerView.Adapter<ChatsContentAdapter.ViewHolder>() {
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
