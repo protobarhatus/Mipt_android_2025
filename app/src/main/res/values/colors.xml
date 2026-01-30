@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray">#FFF1F1F1</color>
+    <color name="tgblue">#FF419FD9</color>
+    <color name="red">#FFEF2A0B</color>
+    <color name="bubble_background">#FFE0E0E0</color>
+</resources>
